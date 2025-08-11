@@ -1,12 +1,14 @@
 1. npm init -y
 
 Install react and react-dom
+> npm i react react-dom
+
 2. Install as DEV dependencies
     - babel-loader
     - @babel-preset-react
     - webpack
     - webpack-cli
-> npm i -D babel-loader @babel-preset-react webpack webpack-cli
+> npm i -D babel-loader @babel-preset-react webpack-cli
 > npm i -g webpack // For install globally
 
 3. Create static folder and src folder
