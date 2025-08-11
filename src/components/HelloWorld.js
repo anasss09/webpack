@@ -1,7 +1,11 @@
 import React from "react";
 
 const HelloWorld = () => {
-  return <div>HelloWorld</div>;
+  let styles = {
+    backgroundColor: 'orange'
+};
+  
+  return <div style={styles}>HelloWorld</div>;
 };
 
 export default HelloWorld;

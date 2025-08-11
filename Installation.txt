@@ -4,6 +4,7 @@ Install react and react-dom
 > npm i react react-dom
 
 2. Install as DEV dependencies
+    - babel-core
     - babel-loader
     - @babel-preset-react
     - webpack
@@ -30,53 +31,47 @@ Install react and react-dom
         },
     };`
 
+10. Include css-loader or style-loader
+    - Install css-loader -> "npm install --save-dev css-loader"
+    - Install style-loader -> "npm install --save-dev style-loader"
+    
+11. Add css-loader object
+    - {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      }
+
 7. Add code babel-loder in "webpack.config.js" file.
     - webpack.js.org -> loader -> babel-loader 
-    `module: {
-        rules: [
-            {
-            test: /\.(?:js|mjs|cjs)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                targets: "defaults",
-                presets: [
-                    ['@babel/preset-react'] // Don't forgot to change preset-react
-                ]
-                }
-            }
-            }
-        ]
-    }`
-
-Total code of webpack.config.js
-    `const path = require('path');
+    `const path = require("path");
 
         module.exports = {
-        entry: './src/App.js',
+        entry: "./src/App.js",
         output: {
-            path: path.resolve(__dirname, 'static'),
-            filename: 'bundle.js',
+            path: path.resolve(__dirname, "static"),
+            filename: "bundle.js",
         },
         module: {
-        rules: [
+            rules: [
             {
-            test: /\.(?:js|mjs|cjs)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
+                test: /\.(?:js|mjs|cjs)$/,
+                exclude: /node_modules/,
+                use: {
+                loader: "babel-loader",
                 options: {
-                targets: "defaults",
-                presets: [
-                    ['@babel/preset-react']
-                ]
-                }
-            }
-            }
-        ]
-        }
+                    targets: "defaults",
+                    presets: [["@babel/preset-react"]],
+                },
+                },
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+            ],
+        },
     };`
+
 
 8. Run the code.
     - webpack --mode development  // For development mode
@@ -85,3 +80,4 @@ Total code of webpack.config.js
 9. Flow
     - webpack file convert krke bundle.js me daal rha h.
     - bundle.js humari HTML file me include h.
+
